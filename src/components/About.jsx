@@ -4,8 +4,18 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 
 // Import your profile photo
 import profilePhoto from '../assets/profile.jpeg';
+import resumeFile from '../assets/Resume.pdf';
 
 const About = () => {
+
+    // Function to handle file download
+    const handleResumeDownload = () => {
+      const link = document.createElement('a');
+      link.href = resumeFile;
+      link.download = 'resume.pdf';  // Specify the default name for the downloaded file
+      link.click(); // Trigger the download
+    };
+
   return (
     <Box display="flex" flexDirection="column" minHeight="100vh">
       <Container>
@@ -52,6 +62,20 @@ const About = () => {
                 GitHub
               </Button>
             </Box>
+
+            {/* Resume Section */}
+          <Box mt={2}>
+            <Typography variant="h6" gutterBottom>
+              Download My Resume
+            </Typography>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handleResumeDownload} // Trigger download when clicked
+            >
+              Download Resume
+            </Button>
+          </Box>
           </Grid>
         </Grid>
       </Container>
